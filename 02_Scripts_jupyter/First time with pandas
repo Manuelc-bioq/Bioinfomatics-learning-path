@@ -1,0 +1,132 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "f3092822-121f-4963-be6f-e4e64cf15c96",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "¡Acabo de leer mi primer CSV de datos proteicos!\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Nombre_Proteina</th>\n",
+       "      <th>Gen</th>\n",
+       "      <th>Longitud_AA</th>\n",
+       "      <th>Enfermedad_Asociada</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>p53</td>\n",
+       "      <td>TP53</td>\n",
+       "      <td>393</td>\n",
+       "      <td>Cancer</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Hemoglobina_beta</td>\n",
+       "      <td>HBB</td>\n",
+       "      <td>147</td>\n",
+       "      <td>Anemia Falciforme</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>CFTR</td>\n",
+       "      <td>CFTR</td>\n",
+       "      <td>1480</td>\n",
+       "      <td>Fibrosis Quistica</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>BRCA1</td>\n",
+       "      <td>BRCA1</td>\n",
+       "      <td>1863</td>\n",
+       "      <td>Cancer de Mama</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    Nombre_Proteina    Gen  Longitud_AA Enfermedad_Asociada\n",
+       "0               p53   TP53          393              Cancer\n",
+       "1  Hemoglobina_beta    HBB          147   Anemia Falciforme\n",
+       "2              CFTR   CFTR         1480   Fibrosis Quistica\n",
+       "3             BRCA1  BRCA1         1863      Cancer de Mama"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "# Simulamos que descargamos un CSV de una base de datos creando uno pequeño\n",
+    "texto_csv = \"\"\"Nombre_Proteina,Gen,Longitud_AA,Enfermedad_Asociada\n",
+    "p53,TP53,393,Cancer\n",
+    "Hemoglobina_beta,HBB,147,Anemia Falciforme\n",
+    "CFTR,CFTR,1480,Fibrosis Quistica\n",
+    "BRCA1,BRCA1,1863,Cancer de Mama\n",
+    "\"\"\"\n",
+    "\n",
+    "# Guardamos ese texto en dataset_proteínas.csv y lo convertimos en la variable archivo\n",
+    "with open(\"dataset_proteinas.csv\", \"w\") as archivo:\n",
+    "    archivo.write(texto_csv)\n",
+    "\n",
+    "# Le pedimos a pandas (pd) que lea el archivo y lo guarde en la variable \"tabla\"\n",
+    "tabla = pd.read_csv(\"dataset_proteinas.csv\")\n",
+    "\n",
+    "# Mostramos la tabla formateada\n",
+    "display(tabla)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.19"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
