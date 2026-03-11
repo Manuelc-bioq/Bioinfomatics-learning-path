@@ -1,0 +1,58 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "38f5a584-3853-4e10-b037-09cf951eb1d4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Nombre de la proteína: Proteina_Ejemplo\n",
+      "Secuencia de aminoácidos: MKTLLILAVIMSRMACGA\n",
+      "Longitud: 18 aminoácidos\n"
+     ]
+    }
+   ],
+   "source": [
+    "from Bio import SeqIO\n",
+    "\n",
+    "# Creamos el archivo de prueba\n",
+    "texto_fasta = \"\"\">Proteina_Ejemplo\n",
+    "MKTLLILAVIMSRMACGA\n",
+    "\"\"\"\n",
+    "with open(\"mi_proteina.fasta\", \"w\") as archivo:\n",
+    "    archivo.write(texto_fasta)\n",
+    "\n",
+    "# Plasmamos el nombre, la secuencia y la longitud de la secuencia\n",
+    "for proteina in SeqIO.parse(\"mi_proteina.fasta\", \"fasta\"):\n",
+    "    print(\"Nombre de la proteína:\", proteina.id)\n",
+    "    print(\"Secuencia de aminoácidos:\", proteina.seq)\n",
+    "    print(\"Longitud:\", len(proteina.seq), \"aminoácidos\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.19"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
